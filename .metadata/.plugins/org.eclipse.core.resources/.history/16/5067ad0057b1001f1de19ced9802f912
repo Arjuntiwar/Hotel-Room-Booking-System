@@ -1,0 +1,213 @@
+package displayFront;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class hotelBookigSystem{
+	
+	private String[] hotelName = {"Arjun Hotel", "Ajay Hotel", "Jasmin Hotel", "Aakriti Hotel", "Soltee Hotel"};
+	int [] hotelRoom = {101,102,103,104,201,202,203,204};
+	
+	ArrayList<Integer> arjunHotel = new ArrayList<>();
+	ArrayList<Integer> ajayHotel = new ArrayList<>();
+	ArrayList<Integer> jasminHotel = new ArrayList<>();
+	ArrayList<Integer> solteeHotel = new ArrayList<>();
+
+	ArrayList<Integer> arjunHotelBooked = new ArrayList<>();
+	ArrayList<Integer> ajayHotelBooked = new ArrayList<>();
+	ArrayList<Integer> jasminHotelBooked = new ArrayList<>();
+	ArrayList<Integer> solteeHotelBooked = new ArrayList<>();
+	
+	void hotelRoom () {
+		System.out.println("Room available");
+		for(int room = 1;room<=8;room++) {
+			arjunHotel.add(room);
+			ajayHotel.add(room);
+			jasminHotel.add(room);
+			solteeHotel.add(room);
+//			System.out.println(arjunHotel);
+		}
+		System.out.println(arjunHotel.get(0));
+	}
+	
+	void listOfHotel() {
+		
+		System.out.println("Name list of hotel");
+		
+		for(int index = 0;index<hotelName.length;index++) {
+			System.out.println("Enter "+ index +" for choose hotel:: " + hotelName[index]);
+		}
+	}
+
+	void roomOfHotel () {
+	
+		
+		for(int index = 0;index<hotelRoom.length;index++) {
+			System.out.println( hotelRoom[index]);
+		}
+	}
+	
+	/*
+	void roomAvailability () {
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the number that denote hotel");
+		int userRoom = input.nextInt();
+		
+		if(userRoom == 0) {
+			System.out.println("Available Room of Arjun Hotel");
+			for (int roomNum:arjunHotel[0]) {
+				System.out.println("Enter for This Room Number " + roomNum);
+			}
+		}else if(userRoom == 1) {
+			System.out.println("Available Room of Ajay Hotel");
+			for (int roomNum:ajayHotel[0]) {
+				System.out.println("Enter for This Room Number " + roomNum);
+			}
+		}else if(userRoom == 2) {
+			System.out.println("Available Room of Jasmin Hotel");
+			for (int roomNum:jasminHotel[0]) {
+				System.out.println("Enter for This Room Number " + roomNum);
+			}
+		}else if(userRoom == 3) {
+			System.out.println("Available Room of Aakriti Hotel");
+			for (int roomNum:aakritiHotel[0]) {
+				System.out.println("Enter for This Room Number " + roomNum);
+			}
+		}else if(userRoom == 4) {
+			System.out.println("Available Room of Soltee Hotel");
+			for (int roomNum:solteeHotel[0]) {
+				System.out.println("Enter the Room Number to check details /" + roomNum);
+			}
+		} else {
+			System.out.println("Sorry you enter wrong number");
+		}
+	
+	}
+	*/
+	
+	void bookHotelNumber () {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the room number");
+		int userInput = input.nextInt();
+		if (hotelName.contains(userInput)) {
+			System.out.println("Your room is booked");
+			System.out.println(arjunHotel.remove(userInput-1));
+		}
+		
+		
+		
+		
+//		Scanner input = new Scanner(System.in);
+//		int userInput = input.nextInt();
+//		switch (userInput) {
+//		case 
+//		}
+		
+	}
+	
+	void paymentProceed () {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter your card name");
+		String accountName = input.next();
+		System.out.println("Enter your card number");
+		int number = input.nextInt();
+		System.out.println("Enter your card expiry date mm/yy");
+		int expiryDate = input.nextInt();
+		System.out.println("Enter your cvc number");
+		int cvcNum = input.nextInt();
+		
+		
+		input.close();
+	}
+	
+	void yourRoomBooked () {
+		
+		
+		
+	}
+	
+
+}
+
+
+public class hotelSystem {
+	
+
+
+	public static void main(String[] args) {
+				
+		Scanner input = new Scanner(System.in);
+		hotelBookigSystem hotelName = new hotelBookigSystem();
+		hotelName.hotelRoom ();
+		hotelName.bookHotelNumber ();
+		
+//		hotelName.roomAvailability();
+//		hotelName.display();
+//		hotelName.paymentProceed ();
+//		hotelName.roomOfHotel();
+		
+//		hotelName.display();
+		
+		
+		 
+//		System.out.println();
+		
+		char choice;
+		do {
+		System.out.println("Menu");
+		System.out.println("Enter 1 for List of hotel");
+		System.out.println("Enter 2 for your booking history details");
+		System.out.println("Enter 3 for look available room");
+		System.out.println("Enter 4 for payment");
+		int userInput = input.nextInt();
+		switch (userInput) {
+			case 1: {
+				hotelName.listOfHotel();
+				
+			}
+			break;
+			case 2:{
+				
+				hotelName.listOfHotel();
+			}
+			break;
+			case 3: {
+				System.out.println("If you want to see available room enter y");
+				String checkInput = input.next(); // check input variable to check user want to see available room or not
+				if(checkInput.charAt(0)=='y'||checkInput.charAt(0)=='Y') {
+//					hotelName.roomAvailability ();
+				}
+			
+			} break;
+			case 4: {
+				hotelName.paymentProceed ();
+			} break;
+		}
+		
+//		if (userInput==1||userInput == 2||userInput==3||userInput == 4) {
+//			switch (userInput) {
+//			case 1: hotelName.roomAvailability ();
+//			break;
+//			}
+//		}
+		
+		
+		System.out.println("Do want to repeat again? If yes enter y ");
+		choice = input.next().charAt(0);
+		
+		} while (choice =='y');
+		
+		
+		
+		
+//		System.out.println();
+		
+			
+		 
+
+		input.close();
+		
+	}
+
+}
